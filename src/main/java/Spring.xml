@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <bean id="student" class="com.example.Student">
+   <property name="sid" value="3"></property>
+   <property name="sname" value="Amruta"></property>
+   <property name="semail" value="a@gmail.com"></property>
+    <property name="phono" value="48374837"></property>
+   </bean>
+   
+<bean id="studentdao" class="com.example.StudentDAO">
+<property name="temp" ref="tempref"></property>
+
+</bean>
+
+   <bean id="tempref" class="org.springframework.jdbc.core.JdbcTemplate">
+   <property name="dataSource" ref="dsref"></property>
+   </bean>
+   
+   <bean id="dsref" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+   <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+   <property name="url" value="jdbc:mysql://localhost:3306/db8"></property>
+  	<property name="username" value="root"></property>
+   <property name="password" value="12345"></property>
+   </bean>
+   </beans>
+
+
